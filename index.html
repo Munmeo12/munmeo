@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Mini Task Manager</h1>
+      <p>Bài kiểm tra thực hành HTML, CSS, JavaScript</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- A: Bổ sung form gồm tên công việc, hạn hoàn thành, ưu tiên -->
+    <section class="card">
+      <form id="task-form">
+        <div class="form-group">
+          <label for="task-title">Tên công việc <span class="required">*</span></label>
+          <input type="text" id="task-title" placeholder="Nhập tên công việc...">
+          <small id="error-msg" class="error"></small>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="task-date">Hạn hoàn thành</label>
+            <input type="date" id="task-date">
+          </div>
+
+          <div class="form-group">
+            <label for="task-priority">Mức ưu tiên</label>
+            <select id="task-priority">
+              <option value="Thấp">Thấp</option>
+              <option value="Trung bình" selected>Trung bình</option>
+              <option value="Cao">Cao</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="btn-add">Thêm công việc</button>
+      </form>
+    </section>
+
+    <!-- A: Bổ sung tìm kiếm, lọc trạng thái và vùng danh sách -->
+    <section class="card">
+      <div class="filter-tools">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Tìm kiếm công việc theo tên...">
+        </div>
+        <div class="filter-box">
+          <select id="status-filter">
+            <option value="ALL">Tất cả trạng thái</option>
+            <option value="UNCOMPLETED">Chưa hoàn thành</option>
+            <option value="COMPLETED">Đã hoàn thành</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Vùng hiển thị danh sách -->
+      <ul id="task-list" class="task-list"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <!-- Ghi rõ họ tên và mã sinh viên -->
+    Sinh viên: <strong>Trần Thị Hà Anh</strong>  |  MSSV: <strong>224001713</strong>
+  </footer>
+</body>
+</html>

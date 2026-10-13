@@ -1,0 +1,210 @@
+/* Phần B: Hoàn thiện CSS theo đề, KHÔNG dùng thư viện ngoài. */
+* { box-sizing: border-box; }
+:root { font-family: Arial, Helvetica, sans-serif; color: #1f2937; }
+body { margin: 0; background: #f7faf9; }
+.container { width: min(1060px, 94%); margin: 0 auto; }
+.site-header { padding: 24px 0; background: #176650; color: white; }
+.site-header h1 { margin: 0 0 6px; }
+.site-header p { margin: 0; }
+.site-footer { margin-top: 28px; padding: 20px; text-align: center; border-top: 1px solid #e5e7eb; background: #ffffff; }
+
+/* TODO: bố cục form, công cụ tìm kiếm, danh sách, trạng thái, responsive */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #dc2626;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+input:focus, select:focus {
+  border-color: #176650;
+  box-shadow: 0 0 0 2px rgba(23, 102, 80, 0.2);
+}
+
+#btn-add {
+  background: #176650;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#btn-add:hover {
+  background: #125240;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Công cụ tìm kiếm và bộ lọc */
+.filter-tools {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  flex: 2;
+}
+
+.filter-box {
+  flex: 1;
+}
+
+/* Danh sách công việc */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #ffffff;
+}
+
+.task-item.completed {
+  background: #f3f4f6;
+  opacity: 0.8;
+}
+
+.task-item.completed .task-title {
+  text-decoration: line-through;
+  color: #6b7280;
+}
+
+.task-meta {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.priority-badge {
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+.priority-Cao { color: #dc2626; background: #fee2e2; }
+.priority-Trung-bình { color: #d97706; background: #fef3c7; }
+.priority-Thấp { color: #16a34a; background: #dcfce7; }
+
+/* Trạng thái công việc quá hạn */
+.task-item.overdue {
+  border-left: 4px solid #dc2626;
+  background-color: #fff5f5;
+}
+
+.overdue-text {
+  color: #dc2626 !important;
+  font-weight: bold;
+}
+
+.overdue-badge {
+  background-color: #fef2f2;
+  color: #dc2626;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  border: 1px solid #fecaca;
+  margin-left: 6px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-action {
+  padding: 6px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-toggle {
+  background: #2563eb;
+  color: white;
+}
+.btn-toggle:hover { background: #1d4ed8; }
+
+.btn-delete {
+  background: #dc2626;
+  color: white;
+}
+.btn-delete:hover { background: #b91c1c; }
+
+/* Responsive phù hợp trên màn hình điện thoại khoảng 375px */
+@media (max-width: 600px) {
+  .form-row, .filter-tools {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .task-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
